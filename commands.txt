@@ -1,0 +1,70 @@
+adb commands:
+-------------
+
+1)If  a device is connected start the adb server to be able to interact with the device.
+
+adb start-server
+
+adb kill-server
+
+
+2)List connected devices
+
+adb devices
+
+
+3)pull files from devices
+
+adb pull [devicemobile file location] [local computer file location]
+
+Example: adb pull /storage/emulated/0/DCIM/Screenshots/Screenshot_2022-08-16-16-17-50-684_com.xiaomi.calendar.jpg E:\files
+
+4)push files to devices
+adb push [Local file location] [Device file location]
+
+5)installing app in devices
+adb install [apk_path]
+adb -s [device serial] install [apk_path]
+adb -r install [apk_path]
+
+6)uninstalling an app
+adb uninstall [package name]
+Example:adb uninstall io.appium.android.apis
+
+7)Launch app
+adb shell am start -n io.appium.android.apis/.ApiDemos
+
+8)Software info about phone
+adb -s deviceid/udid shell dumpsys
+Example:adb -s 989656f45 shell dumpsys
+
+9)Take screenshot
+Ex:
+adb shell screencap -p /sdcard/screenshots.png
+adb pull /sdcard/screenshots.png
+adb shell rm /sdcard/screenshots.png
+
+
+10) capturing videos
+adb shell screenrecord /sdcard/screenrecord.mp4
+adb pull /sdcard/screenrecord.mp4
+adb shell /sdcard/screenrecord.mp4
+
+11)adb logs 
+adb logcat
+adb logcat>D:/april2020/paven.txt
+
+10)Network connection
+adb shell svc wifi enable/disable
+adb shell svc data enable/disable
+adb shell svc usb enable/disable
+adb shell svc bluetooth enable/disable
+
+11)Launch multiple appium 
+appium -p [portnumber]
+appium -u udid -portnumber
+ex:appium -u 978569 -p 4723
+
+12)to get the apppackage and app activity
+1==>adb shell "dumpsys window windows|grep -E 'mcurrentfocus|mfocusedapp'"
+aapt dump badging appname.apk
