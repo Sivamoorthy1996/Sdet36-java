@@ -3,6 +3,7 @@ package ArrayPractices;
 public class AppendFirstZero {
 
 	public static void main(String[] args) {
+		//hi
 	int a[]= {1,0,0,1,0,1};
 	int b[]=new int[a.length];
 	int m=0;
